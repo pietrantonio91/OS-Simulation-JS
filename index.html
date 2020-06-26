@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Template</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="window">
+        <div id="topbar">
+            <div id="menu">
+                <!-- Program options -->
+            </div>
+            <div id="datetime">
+                17:09 30/03/2020
+            </div>
+            <div id="profile">
+                <div class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 0 512 512.002"
+                        class="icon mr-1">
+                        <path
+                            d="m210.351562 246.632812c33.882813 0 63.222657-12.152343 87.195313-36.128906 23.972656-23.972656 36.125-53.304687 36.125-87.191406 0-33.875-12.152344-63.210938-36.128906-87.191406-23.976563-23.96875-53.3125-36.121094-87.191407-36.121094-33.886718 0-63.21875 12.152344-87.191406 36.125s-36.128906 53.308594-36.128906 87.1875c0 33.886719 12.15625 63.222656 36.132812 87.195312 23.976563 23.96875 53.3125 36.125 87.1875 36.125zm0 0" />
+                        <path
+                            d="m426.128906 393.703125c-.691406-9.976563-2.089844-20.859375-4.148437-32.351563-2.078125-11.578124-4.753907-22.523437-7.957031-32.527343-3.308594-10.339844-7.808594-20.550781-13.371094-30.335938-5.773438-10.15625-12.554688-19-20.164063-26.277343-7.957031-7.613282-17.699219-13.734376-28.964843-18.199219-11.226563-4.441407-23.667969-6.691407-36.976563-6.691407-5.226563 0-10.28125 2.144532-20.042969 8.5-6.007812 3.917969-13.035156 8.449219-20.878906 13.460938-6.707031 4.273438-15.792969 8.277344-27.015625 11.902344-10.949219 3.542968-22.066406 5.339844-33.039063 5.339844-10.972656 0-22.085937-1.796876-33.046874-5.339844-11.210938-3.621094-20.296876-7.625-26.996094-11.898438-7.769532-4.964844-14.800782-9.496094-20.898438-13.46875-9.75-6.355468-14.808594-8.5-20.035156-8.5-13.3125 0-25.75 2.253906-36.972656 6.699219-11.257813 4.457031-21.003906 10.578125-28.96875 18.199219-7.605469 7.28125-14.390625 16.121094-20.15625 26.273437-5.558594 9.785157-10.058594 19.992188-13.371094 30.339844-3.199219 10.003906-5.875 20.945313-7.953125 32.523437-2.058594 11.476563-3.457031 22.363282-4.148437 32.363282-.679688 9.796875-1.023438 19.964844-1.023438 30.234375 0 26.726562 8.496094 48.363281 25.25 64.320312 16.546875 15.746094 38.441406 23.734375 65.066406 23.734375h246.53125c26.625 0 48.511719-7.984375 65.0625-23.734375 16.757813-15.945312 25.253906-37.585937 25.253906-64.324219-.003906-10.316406-.351562-20.492187-1.035156-30.242187zm0 0" />
+                    </svg> Alessandro</div>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Profilo</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="body">
+            <div id="terminal-program" class="program-modal terminal-program draggable resizable"
+                data-options="Properties,Settings"
+                onclick="putOnTop(this)">
+                <div class="program-wrapper">
+                    <div class="program-header" ondblclick="toggleFullscreen(findAncestor(this, '.program-modal'))">
+                        <div class="program-title font-style-bold">
+                            Terminal
+                        </div>
+                        <div class="program-actions">
+                            <button class="program-action-iconize btn btn-light btn-sm"
+                                onclick="iconizeProgram(findAncestor(this, '.program-modal'))">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 492 492"
+                                    style="width: 20px; height: 20px;" xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M465.064,207.562H26.908C12.076,207.562,0,219.698,0,234.53v22.804c0,14.832,12.072,27.104,26.908,27.104h438.156    c14.84,0,26.936-12.272,26.936-27.104V234.53C492,219.698,479.904,207.562,465.064,207.562z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </button>
+                            <button class="program-action-fullscreen btn btn-light btn-sm"
+                                onclick="fullscreenProgram(findAncestor(this, '.program-modal'))">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" style="width: 20px; height: 20px;"
+                                    viewBox="0 0 507.367 507.367">
+                                    <path
+                                        d="m490.877 70.506h-474.387c-9.107 0-16.49 7.383-16.49 16.49v333.375c0 9.107 7.383 16.49 16.49 16.49h474.387c9.107 0 16.49-7.383 16.49-16.49v-333.375c0-9.107-7.383-16.49-16.49-16.49z" />
+                                </svg>
+                            </button>
+                            <button class="program-action-close btn btn-light btn-sm"
+                                onclick="closeProgram(findAncestor(this, '.program-modal'), getById('launcher-terminal'))">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 47.971 47.971"
+                                    style="width: 20px; height: 20px;" xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88   c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242   C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879   s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z" />
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="terminal-content">
+
+                        </div>
+                        <div class="terminal-input">
+                            <div class="username">username: > </div><div class="input"><input type="text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hardware-program" class="hardware-program program-modal draggable resizable"
+                data-options="Settings"
+                onclick="putOnTop(this)">
+                <div class="program-wrapper">
+                    <div class="program-header" ondblclick="toggleFullscreen(findAncestor(this, '.program-modal'))">
+                        <div class="program-title font-style-bold">
+                            Hardware
+                        </div>
+                        <div class="program-actions">
+                            <button class="program-action-iconize btn btn-light btn-sm"
+                                onclick="iconizeProgram(findAncestor(this, '.program-modal'))">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 492 492"
+                                    style="width: 20px; height: 20px;" xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M465.064,207.562H26.908C12.076,207.562,0,219.698,0,234.53v22.804c0,14.832,12.072,27.104,26.908,27.104h438.156    c14.84,0,26.936-12.272,26.936-27.104V234.53C492,219.698,479.904,207.562,465.064,207.562z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </button>
+                            <button class="program-action-fullscreen btn btn-light btn-sm"
+                                onclick="fullscreenProgram(findAncestor(this, '.program-modal'))">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" style="width: 20px; height: 20px;"
+                                    viewBox="0 0 507.367 507.367">
+                                    <path
+                                        d="m490.877 70.506h-474.387c-9.107 0-16.49 7.383-16.49 16.49v333.375c0 9.107 7.383 16.49 16.49 16.49h474.387c9.107 0 16.49-7.383 16.49-16.49v-333.375c0-9.107-7.383-16.49-16.49-16.49z" />
+                                </svg>
+                            </button>
+                            <button class="program-action-close btn btn-light btn-sm"
+                                onclick="closeProgram(findAncestor(this, '.program-modal'), getById('launcher-hardware'))">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 47.971 47.971"
+                                    style="width: 20px; height: 20px;" xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88   c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242   C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879   s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z" />
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        Example program for list of hardware.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottombar">
+            <div id="launcher-terminal" class="program program-launcher" 
+                data-target-id="terminal-program"
+                onclick="toggleProgram(this)">
+                <img src="https://image.flaticon.com/icons/svg/446/446013.svg" alt="">
+            </div>
+            <div id="launcher-hardware" class="program program-launcher" 
+                data-target-id="hardware-program"
+                onclick="toggleProgram(this)">
+                <img src="https://image.flaticon.com/icons/svg/2426/2426194.svg" alt="">
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
