@@ -1,4 +1,4 @@
-console.log("%cStop!", "color: red; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;");
+console.log("%cStop using the console!", "color: red; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;");
 
 /**
  * Dragging 
@@ -16,7 +16,7 @@ interact('.program-modal').draggable({
     ],
     listeners: {
         move(event) {
-            var target = event.target;
+            let target = event.target;
 
             let { x, y } = target.dataset
 
@@ -61,7 +61,7 @@ interact('.program-modal')
         ]
     })
     .on('resizemove', event => {
-        var target = event.target;
+        let target = event.target;
 
         let { x, y } = target.dataset
 
@@ -74,20 +74,35 @@ interact('.program-modal')
         })
     })
 
+/**
+ * Dropdown
+ */
+document.querySelectorAll('.dropdown-toggle').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+        const target = e.target;
+        let menu = target.querySelector('.dropdown-menu');
+        if(menu.classList.contains('show')) {
+            menu.classList.remove('show');
+        } else {
+            menu.classList.add('show');
+        }
+    })
+})
+
 
 /**
  * Program modal
  */
 
 function openProgram(launcher) {
-    var element = document.getElementById(launcher.getAttribute('data-target-id'));
+    let element = document.getElementById(launcher.getAttribute('data-target-id'));
     element.style.display = "block";
     putOnTop(element);
     addClass(launcher, 'open');
 }
 
 function toggleProgram(launcher) {
-    var element = document.getElementById(launcher.getAttribute('data-target-id'));
+    let element = document.getElementById(launcher.getAttribute('data-target-id'));
     if (launcher.classList.contains('open')) {
         if (element.style.display == 'block' && element.classList.contains('ontop')) {
             document.getElementById('menu').innerHTML = '';
@@ -108,7 +123,7 @@ function toggleProgram(launcher) {
 
 function addOptionsToProgram(element) {
     let options = element.getAttribute('data-options').split(',');
-    var wrapper = document.getElementById('menu');
+    let wrapper = document.getElementById('menu');
     wrapper.innerHTML = '';
     if(options.length > 0) {
         options.forEach(function(el) {
@@ -118,6 +133,12 @@ function addOptionsToProgram(element) {
             wrapper.appendChild(newOption);
         });
     }
+}
+
+function removeOptions() {
+    setTimeout(function() {
+        document.getElementById('menu').innerHTML = '';
+    }, 10);
 }
 
 function fullscreenProgram(element) {
@@ -147,6 +168,7 @@ function iconizeProgram(element) {
 function closeProgram(element, launcher) {
     element.style.display = "none";
     launcher.classList.remove('open');
+    removeOptions();
 }
 
 /**
@@ -189,7 +211,7 @@ function findAncestor(el, sel) {
 }
 
 function putOnTop(element) {
-    var programModals = document.getElementsByClassName("program-modal");
+    let programModals = document.getElementsByClassName("program-modal");
     Array.from(programModals).forEach(modal => removeClass(modal, 'ontop'));
     addOptionsToProgram(element);
     addClass(element, 'ontop');
@@ -211,3 +233,4 @@ if (document.addEventListener) {
         window.event.returnValue = false;
     });
 }
+

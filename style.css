@@ -47,10 +47,19 @@
     fill: #fff;
 }
 
+.dropdown-toggle {
+    position: relative;
+}
+
 .dropdown-menu {
     z-index: 2;
     background-color: #f7f7f7;
     border-radius: 0;
+}
+
+.dropdown-menu-right {
+    position: absolute;
+    right: 0;
 }
 
 #profile .dropdown-menu .dropdown-item:hover, #profile .dropdown-menu .dropdown-item:active {
